@@ -1,0 +1,30 @@
+@startuml
+class Automovil {
+    - double valor
+    - boolean esServicioPublico
+    - boolean esDeOtraProvincia
+    - boolean pagoAlContado
+    - int aniosDiferimiento
+    + Automovil(double, boolean, boolean, boolean, int)
+    + getValor() : double
+    + esServicioPublico() : boolean
+    + esDeOtraProvincia() : boolean
+    + esPagoAlContado() : boolean
+    + getAniosDiferimiento() : int
+}
+
+class CalculadorImpuestos {
+    - double DESCUENTO_PRONTO_PAGO
+    - double DESCUENTO_SERVICIO_PUBLICO
+    - double DESCUENTO_TRASLADO_CUENTA
+    + calcularImpuestos(Automovil) : double
+}
+
+class Main {
+    + main(String[]) : void
+}
+
+Automovil --> CalculadorImpuestos : "uses"
+Main --> Automovil : "creates"
+Main --> CalculadorImpuestos : "uses"
+@enduml
